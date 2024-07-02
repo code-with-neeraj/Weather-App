@@ -127,4 +127,7 @@ body {
   .details{
     gap: 30px;
   }
+   .card{
+    margin: 80px auto 30px;
+  }
 }

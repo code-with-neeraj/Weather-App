@@ -117,3 +117,13 @@ body{
     margin-top: 10px;
     display: none;
 }
+
+@media screen and (max-width: 950px) {
+    .search{
+        padding: 10px;
+    }
+   .search input{
+    width: 80px;
+   }
+ 
+  }

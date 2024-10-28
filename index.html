@@ -42,58 +42,83 @@
     </div>
 
     <script>
+        // Stores the OpenWeatherMap API key needed for authentication.
         const apikey = "aded6c4a048f41d357c29b9999a487bb";
+        
+        // Defines the base URL for the OpenWeatherMap API, which fetches weather in metric units.
         const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-
-        const searchBox = document.querySelector(".search input");
-        const searchBtn = document.querySelector(".search button");
-        const weatherIcon = document.querySelector(".weather-icon");
-
-
-        async function checkWeather(city){
-            const response = await fetch(apiUrl + city + `&appid=${apikey}`);
-
-            if(response.status == 404){
-                document.querySelector(".error").style.display = "block";
-                document.querySelector(".weather").style.display = "none";
-            }else{
-                var data = await response.json();
-
-
-                document.querySelector(".city").innerHTML = data.name;
-                document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
-                document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-                document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
     
-                if(data.weather[0].main == "Clouds"){
-                    weatherIcon.src = "images/clouds.png"
+        // Selects the input element where the user types in the city name.
+        const searchBox = document.querySelector(".search input");
+        
+        // Selects the button that the user clicks to search for the weather of the input city.
+        const searchBtn = document.querySelector(".search button");
+        
+        // Selects the element where the weather icon will be displayed.
+        const weatherIcon = document.querySelector(".weather-icon");
+    
+        // Declares an asynchronous function to fetch and display the weather data.
+        async function checkWeather(city) {
+            // Makes an API request using the city name provided and the stored API key.
+            const response = await fetch(apiUrl + city + `&appid=${apikey}`);
+    
+            // Checks if the response status is 404 (city not found).
+            if(response.status == 404) {
+                // Displays the error message if the city is not found.
+                document.querySelector(".error").style.display = "block";
+                // Hides the weather display area as the data is invalid.
+                document.querySelector(".weather").style.display = "none";
+            } else {
+                // Parses the JSON response data if the city is found.
+                var data = await response.json();
+    
+                // Updates the city name in the HTML.
+                document.querySelector(".city").innerHTML = data.name;
+                
+                // Updates the temperature and rounds it to the nearest integer.
+                document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+                
+                // Updates the humidity level in the HTML.
+                document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+                
+                // Updates the wind speed in the HTML.
+                document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+        
+                // Checks the weather condition to determine which icon to display.
+                if(data.weather[0].main == "Clouds") {
+                    // Displays the 'clouds.png' icon if the weather is cloudy.
+                    weatherIcon.src = "images/clouds.png";
                 }
-                else if (data.weather[0].main == "Clear"){
-                     weatherIcon.src = "images/clear.png"
+                else if (data.weather[0].main == "Clear") {
+                    // Displays the 'clear.png' icon if the weather is clear.
+                    weatherIcon.src = "images/clear.png";
                 }
-                else if (data.weather[0].main == "Rain"){
-                     weatherIcon.src = "images/rain.png"
+                else if (data.weather[0].main == "Rain") {
+                    // Displays the 'rain.png' icon if it is raining.
+                    weatherIcon.src = "images/rain.png";
                 }
-                else if (data.weather[0].main == "Drizzle"){
-                     weatherIcon.src = "images/drizzle.png"
+                else if (data.weather[0].main == "Drizzle") {
+                    // Displays the 'drizzle.png' icon if there is drizzle.
+                    weatherIcon.src = "images/drizzle.png";
                 }
-                else if (data.weather[0].main == "Mist"){
-                     weatherIcon.src = "images/mist.png"
+                else if (data.weather[0].main == "Mist") {
+                    // Displays the 'mist.png' icon if there is mist.
+                    weatherIcon.src = "images/mist.png";
                 }
                 
+                // Makes the weather display area visible with the updated data.
                 document.querySelector(".weather").style.display = "block";
+                // Hides the error message if the data is successfully retrieved.
                 document.querySelector(".error").style.display = "none";
             }
-
-           
         }
-
-
-        searchBtn.addEventListener("click", ()=>{
+    
+        // Adds a click event listener to the search button.
+        searchBtn.addEventListener("click", () => {
+            // Calls the checkWeather function with the city name entered by the user.
             checkWeather(searchBox.value);
-
-        })
-
+        });
     </script>
+    
 </body>
 </html>

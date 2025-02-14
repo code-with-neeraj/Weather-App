@@ -1,10 +1,10 @@
-Weather App
+# Weather App
 
-Overview
+# Overview
 
 The Weather App is a simple and user-friendly application that provides real-time weather updates for any location. It fetches weather data from a reliable API and displays information such as temperature, humidity, wind speed, and weather conditions.
 
-Features
+# Features
 
 Search weather by city name
 
@@ -18,7 +18,7 @@ Supports multiple units (Celsius and Fahrenheit)
 
 Error handling for invalid city names
 
-Technologies Used
+# Technologies Used
 
 HTML
 
@@ -28,7 +28,7 @@ JavaScript
 
 Weather API (e.g., OpenWeatherMap API)
 
-Installation
+# Installation
 
 Clone the repository:
 
@@ -40,7 +40,7 @@ cd weather-app
 
 Open index.html in a browser or deploy to a web server.
 
-Usage
+# Usage
 
 Enter a city name in the search bar.
 
@@ -48,7 +48,7 @@ Click the search button to fetch weather details.
 
 View real-time weather information displayed on the screen.
 
-API Configuration
+# API Configuration
 
 To use the Weather API, follow these steps:
 

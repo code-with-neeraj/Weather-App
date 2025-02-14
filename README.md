@@ -32,7 +32,7 @@ Installation
 
 Clone the repository:
 
-git clone https://github.com/yourusername/weather-app.git
+git clone https://github.com/code-with-neeraj/Weather-App.git
 
 Navigate to the project folder:
 
@@ -61,7 +61,4 @@ const apiKey = "YOUR_API_KEY";
 Save the changes and restart the application.
 
 
-Email: your-email@example.com
-
-GitHub: yourusername
 
